@@ -8,10 +8,10 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class ProductsService {
-
+  class = "products";
   constructor(private cs: CommonService, private router: Router) { }
   addProduct(product: Product) {
-    this.cs.post("/add", product).subscribe(
+    this.cs.post(`${this.class}/add`, product).subscribe(
       res => {
         console.log('Done');
         this.router.navigate(['products']);
@@ -21,15 +21,15 @@ export class ProductsService {
   }
 
   getProducts() {
-    return this.cs.get("");
+    return this.cs.get(`${this.class}`);
   }
 
   editProduct(id) {
-    return this.cs.get(`/edit/${id}`);
+    return this.cs.get(`${this.class}/edit/${id}`);
   }
 
   updateProduct(product: any) {
-    this.cs.post(`/update/${product._id}`, product).subscribe(
+    this.cs.post(`${this.class}/update/${product._id}`, product).subscribe(
       res => {
         console.log('Done');
         this.router.navigate(['products']);
@@ -37,6 +37,6 @@ export class ProductsService {
   }
 
   deleteProduct(id) {
-    return this.cs.get(`/delete/${id}`);
+    return this.cs.get(`${this.class}/delete/${id}`);
   }
 }

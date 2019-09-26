@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { ProductGetComponent } from './product/product-get/product-get.component';
 import { ProductEditComponent } from './product/product-edit/product-edit.component';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsService } from './product/products.service';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -30,6 +30,7 @@ import { EditquestionComponent } from './question/editquestion/editquestion.comp
     AppRoutingModule,
     SlimLoadingBarModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
     NgbModule
   ],
