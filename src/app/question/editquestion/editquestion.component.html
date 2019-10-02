@@ -9,6 +9,11 @@
                 <label class="col-md-4">duration</label>
                 <input type="text" class="form-control" [(ngModel)]="this.question.duration" [ngModelOptions]="{standalone: true}" />
             </div>
+
+            <select>
+                    <option *ngFor="let cat of keys(categories)" [ngValue]="categories[cat]">{{cat}}</option>
+            </select>
+                
             <div class="form-group" *ngIf="this.question && this.question._id">
                 <button (click)="updateQuestion()" type="submit" class="btn btn-primary">
                     updateQuestion

@@ -11,8 +11,18 @@ export class Question {
 }
 
 export enum Category {
-    MATRIS, BENZESME, KUPLER
+    MATRIS="MATRIS", BENZESME="BENZESME", KUPLER="KUPLER"
 }
+
+/*export namespace Category {
+    export function values() {
+        return Object.keys(Category).filter(
+            (type) => isNaN(<any>type) && type !== 'values'
+        );
+    }
+}*/
+
+
 
 export class Image {
     id: number;

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QuestionService } from '../question.service';
 import { ActivatedRoute } from '@angular/router';
-import { Question } from 'src/app/model/question';
+import { Question, Category } from 'src/app/model/question';
 
 @Component({
   selector: 'app-editquestion',
@@ -10,9 +10,12 @@ import { Question } from 'src/app/model/question';
 })
 export class EditquestionComponent implements OnInit {
   question: Question;
-
+  keys = Object.keys;
+  categories = Category;
+  deneme: any;
   constructor(private route: ActivatedRoute, private questionService: QuestionService) {
     this.question = new Question();
+
   }
 
   ngOnInit() {
@@ -21,6 +24,7 @@ export class EditquestionComponent implements OnInit {
       if (params['id']) {
         this.questionService.editQuestion(params['id']).subscribe((res: Question) => {
           this.question = res;
+          this.question.category = Category.BENZESME;
         });
       }
 
@@ -28,6 +32,7 @@ export class EditquestionComponent implements OnInit {
   }
 
   updateQuestion() {
+    console.log(this.deneme);
     this.questionService.updateQuestion(this.question);
   }
 

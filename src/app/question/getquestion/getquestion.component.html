@@ -14,6 +14,11 @@
             <td>{{ question.duration }}</td>
             <td>{{ question.rightAnswer }}</td>
             <td>{{ question.ProductPrice }}</td>
+            <td>
+                <select>
+                    <option *ngFor="let cat of keys(categories)">{{categories[cat]}}</option>
+                </select>
+            </td>
             <td><a [routerLink]="['/question/edit', question._id]" class="btn btn-primary">Edit</a></td>
             <td><a (click)="deleteQuestion(question._id)" class="btn btn-danger">Delete</a>
         </tr>

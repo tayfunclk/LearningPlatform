@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Question } from 'src/app/model/question';
+import { Question, Category } from 'src/app/model/question';
 import { QuestionService } from '../question.service';
 
 @Component({
@@ -8,7 +8,9 @@ import { QuestionService } from '../question.service';
   styleUrls: ['./getquestion.component.css']
 })
 export class GetquestionComponent implements OnInit {
-  questions: Question[]=[];
+  questions: Question[] = [];
+  keys = Object.keys;
+  categories = Category;
   constructor(private questionService: QuestionService) { }
 
   ngOnInit() {
